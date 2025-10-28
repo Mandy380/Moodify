@@ -15,7 +15,7 @@ def result():
   mood = request.form['mood']
   quotes = mood_d.get(mood,"Stay Blessed and Be You, Always!"])
   quote = random.choice(quotes)
-  return render_template('result.html', mood = mood, quote = quote)
+  return render_template('results.html', mood = mood, quote = quote)
 
 if __name__ == '__main__':
   app.run(debug=True)
