@@ -1,1 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Mood Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>{{ mood }} Vibes 💫</h1>
+    <p class="quote">{{ quote }}</p>
+    <a href="/">← Go back</a>
+  </div>
+</body>
+</html>
 
