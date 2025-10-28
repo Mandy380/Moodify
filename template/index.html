@@ -1,1 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Moodify</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Moodify</h1>
+      <h3>Find the quotes based on your Mood</h3>
+
+      <p>How are you feeling Today? Get a quote that matches your Feeling</p>
+
+      <form action = "/results" method="POST">
+        <select name="mood" required>
+          <option value="">-- Select your mood --</option>
+          <option value="Happy"> Happy </option>
+          <option value="Sad"> Sad </option>
+          <option value="Angry"> Angry </option>
+          <option value="Tired"> Tired </option>
+        </select>
+        <br>
+        <button type="Submit"> See the Quote</button>
+      </form>
+    </div>
+  </body>
+  
+</html>
 
