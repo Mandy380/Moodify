@@ -17,17 +17,17 @@ except (FileNotFoundError, json.JSONDecodeError):
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('template/index.html')
 
-@app.route('/results', methods=['POST'])
+@app.route('template/results', methods=['POST'])
 def result():
     mood = request.form.get('mood', '').strip()
     if not mood:
-        return render_template('results.html', mood='Unknown', quote='Please select a mood.')
+        return render_template('template/results.html', mood='Unknown', quote='Please select a mood.')
 
     quotes = mood_d.get(mood, ["Stay Blessed and Be You, Always!"])
     quote = random.choice(quotes) if quotes else "Stay Blessed and Be You, Always!"
-    return render_template('results.html', mood=mood, quote=quote)
+    return render_template('template/results.html', mood=mood, quote=quote)
 
 if __name__ == '__main__':
     app.run(debug=True)
