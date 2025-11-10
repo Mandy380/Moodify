@@ -13,11 +13,7 @@
 
       <p>How are you feeling today? Get a quote that matches your feeling.</p>
 
-      <!-- If you have a named endpoint for results, prefer using url_for('results') -->
-      <form action="{{ url_for('results') }}" method="post">
-        <!-- If using Flask-WTF or other CSRF protection, include the token here -->
-        {# Example for Flask-WTF: {{ form.csrf_token }} #}
-
+      <form action="/results" method="post">
         <label for="mood">Select your mood</label>
         <select id="mood" name="mood" required>
           <option value="" disabled selected>-- Select your mood --</option>
