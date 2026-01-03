@@ -17,9 +17,9 @@ except (FileNotFoundError, json.JSONDecodeError):
 
 @app.route('/')
 def home():
-    return render_template('template/index.html')
+    return render_template('index.html')
 
-@app.route('template/results', methods=['POST'])
+@app.route('/results', methods=['POST'])
 def result():
     mood = request.form.get('mood', '').strip()
     if not mood:
