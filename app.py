@@ -5,8 +5,9 @@ import random
 
 app = Flask(__name__)
 
-# Load moods.json relative to the app root and handle errors gracefully
+# Load moods.json safely
 moods_path = os.path.join(app.root_path, 'moods.json')
+
 try:
     with open(moods_path, 'r', encoding='utf-8') as f:
         mood_d = json.load(f)
@@ -22,14 +23,23 @@ def home():
 @app.route('/results', methods=['POST'])
 def result():
     mood = request.form.get('mood', '').strip()
-    
+
     if not mood:
-        return render_template('results.html', mood='Unknown', quote='Please select a mood.')
+        return render_template(
+            'results.html',
+            mood='Unknown',
+            quote='Please select a mood.'
+        )
 
     quotes = mood_d.get(mood, ["Stay Blessed and Be You, Always!"])
-    quote = random.choice(quotes) if quotes else "Stay Blessed and Be You, Always!"
-    
-    return render_template('results.html', mood=mood, quote=quote)
+    quote = random.choice(quotes)
+
+    return render_template(
+        'results.html',
+        mood=mood,
+        quote=quote
+    )
 
 if __name__ == '__main__':
     app.run(debug=True)
+
